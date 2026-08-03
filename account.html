@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Личный кабинет — ХореЛайн</title>
+  <meta name="description" content="Личный кабинет ХореЛайн: личные данные, смена пароля и история заказов.">
+  <link rel="icon" type="image/png" href="img/favicon.png?v=2">
+  <link rel="apple-touch-icon" href="img/favicon.png?v=2">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== ШАПКА ===== -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo" aria-label="ХореЛайн — на главную">
+      <img src="img/logo.png" alt="ХореЛайн" class="logo__img">
+    </a>
+    <nav class="nav">
+      <button class="nav__burger" id="burger" aria-label="Меню">☰</button>
+      <ul class="nav__list" id="navList">
+        <li><a href="index.html#catalog">Каталог</a></li>
+        <li><a href="index.html#bestsellers">Рекомендуем</a></li>
+        <li><a href="about.html">О компании</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+    </nav>
+    <div class="header__actions">
+      <form class="search" onsubmit="handleSearch(event)">
+        <input type="search" placeholder="Поиск товаров..." aria-label="Поиск" autocomplete="off">
+        <button type="submit" aria-label="Найти"><img src="img/search.svg" alt="" class="search__icon"></button>
+      </form>
+      <button class="cart-btn" id="cartBtn" aria-label="Корзина">
+        <img src="img/cart.svg" alt="" class="cart-btn__icon">
+        <span class="cart-btn__count" id="cartCount">0</span>
+      </button>
+      <button class="user-btn" id="userBtn" aria-label="Войти">
+        <span class="user-btn__icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="17" r="7"/><path d="M11 40 C11 31 17 27 24 27 C31 27 37 31 37 40"/></svg></span>
+        <span class="user-btn__text" id="userBtnText">Войти</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="container breadcrumbs"><a href="index.html">Главная</a> → <span>Личный кабинет</span></div>
+
+<!-- ===== ЛИЧНЫЙ КАБИНЕТ ===== -->
+<main class="account-page" id="accountPage">
+  <div class="container">
+    <h1>Личный кабинет</h1>
+
+    <!-- Заглушка для неавторизованных -->
+    <div class="account-gate" id="accountGate" style="display:none;">
+      <div class="account-gate__box">
+        <p>Чтобы войти в личный кабинет и видеть историю заказов, необходимо авторизоваться.</p>
+        <button class="btn btn--primary" id="gateLoginBtn">Войти или зарегистрироваться</button>
+      </div>
+    </div>
+
+    <!-- Тело кабинета (показываем только залогиненным) -->
+    <div id="accountBody" style="display:none;">
+      <div class="account-grid">
+        <section class="checkout-section">
+            <h3><span class="acc-h-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="17" r="7"/><path d="M11 40 C11 31 17 27 24 27 C31 27 37 31 37 40"/></svg></span>Личные данные</h3>
+          <form id="accProfileForm">
+            <label>Имя<input type="text" id="accName" required minlength="2"></label>
+            <label>Телефон<input type="tel" id="accPhone" required placeholder="+7 (___) ___-__-__"></label>
+            <label>E-mail<input type="email" id="accEmail" required></label>
+            <button type="submit" class="btn btn--primary btn--full">Сохранить изменения</button>
+          </form>
+        </section>
+
+        <section class="checkout-section">
+            <h3><span class="acc-h-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="13" y="21" width="22" height="17" rx="3"/><path d="M18 21 V15 A6 6 0 0 1 30 15 V21"/><circle cx="24" cy="29" r="2"/><line x1="24" y1="31" x2="24" y2="34"/></svg></span>Смена пароля</h3>
+          <form id="accPassForm">
+            <label>Текущий пароль<div class="password-wrap"><input type="password" id="accPassOld" required placeholder="Введите текущий пароль"><button type="button" class="toggle-pass" aria-label="Показать пароль"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24s7-12 18-12 18 12 18 12-7 12-18 12S6 24 6 24z"/><circle cx="24" cy="24" r="5"/><line class="eye-slash" x1="10" y1="38" x2="38" y2="10"/></svg></button></div></label>
+            <label>Новый пароль<div class="password-wrap"><input type="password" id="accPass1" required minlength="6" placeholder="Минимум 6 символов"><button type="button" class="toggle-pass" aria-label="Показать пароль"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24s7-12 18-12 18 12 18 12-7 12-18 12S6 24 6 24z"/><circle cx="24" cy="24" r="5"/><line class="eye-slash" x1="10" y1="38" x2="38" y2="10"/></svg></button></div></label>
+            <label>Повторите новый пароль<div class="password-wrap"><input type="password" id="accPass2" required minlength="6" placeholder="Повторите пароль"><button type="button" class="toggle-pass" aria-label="Показать пароль"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24s7-12 18-12 18 12 18 12-7 12-18 12S6 24 6 24z"/><circle cx="24" cy="24" r="5"/><line class="eye-slash" x1="10" y1="38" x2="38" y2="10"/></svg></button></div></label>
+            <button type="submit" class="btn btn--primary btn--full">Сменить пароль</button>
+          </form>
+        </section>
+      </div>
+
+      <section class="checkout-section">
+          <h3><span class="acc-h-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="12" y="8" width="24" height="32" rx="3"/><path d="M17 17 L19 19 L23 15"/><line x1="26" y1="17" x2="31" y2="17"/><path d="M17 25 L19 27 L23 23"/><line x1="26" y1="25" x2="31" y2="25"/><line x1="17" y1="33" x2="31" y2="33"/></svg></span>История заказов</h3>
+        <div id="accOrders"></div>
+      </section>
+
+      <button type="button" class="btn btn--full account-logout" id="accLogout">Выйти из аккаунта</button>
+      <div class="auth-message" id="accMsg"></div>
+    </div>
+  </div>
+</main>
+
+<!-- ===== ФУТЕР ===== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <h4>Контакты</h4>
+      <p><a href="tel:+79313565759">+7 (931) 356-57-59</a></p>
+      <p><a href="mailto:hozochka-spb@yandex.ru">hozochka-spb@yandex.ru</a></p>
+    </div>
+    <div class="footer__col">
+      <h4>Информация</h4>
+      <ul>
+        <li><a href="about.html">О магазине</a></li>
+        <li><a href="contacts.html">Доставка и оплата</a></li>
+        <li><a href="about.html#returns">Условия возврата</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Документы</h4>
+      <ul>
+        <li><a href="policy.html" target="_blank" rel="noopener">Политика конфиденциальности</a></li>
+        <li><a href="cookies-policy.html" target="_blank" rel="noopener">Политика использования cookies</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Мы в сети</h4>
+      <p>г. Санкт-Петербург</p>
+      <p>Пн–Пт: 9:00–19:00</p>
+    </div>
+  </div>
+  <div class="footer__copy">© 2026 ХореЛайн. Все права защищены.</div>
+</footer>
+
+<!-- ===== КОРЗИНА ===== -->
+<div class="modal" id="cartModal" aria-hidden="true">
+  <div class="modal__window modal__window--cart">
+    <button class="modal__close" data-close aria-label="Закрыть">×</button>
+    <h2>Корзина</h2>
+    <div class="cart-list" id="cartList"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Итого: <strong id="cartTotal">0 ₽</strong></div>
+      <button class="btn btn--primary" id="checkoutBtn">Оформить заказ</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ОФОРМЛЕНИЕ ЗАКАЗА ===== -->
+<div class="modal" id="checkoutModal" aria-hidden="true">
+  <div class="modal__window modal__window--checkout">
+    <button class="modal__close" data-close aria-label="Закрыть">×</button>
+    <h2>Оформление заказа</h2>
+    <form id="checkoutForm" class="checkout-form">
+      <div class="checkout-section">
+        <h3><span class="acc-h-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="16" r="8"/><path d="M8 42c0-8.8 7.2-16 16-16s16 7.2 16 16"/></svg></span> Ваши данные</h3>
+        <label>Имя *<input type="text" name="name" required placeholder="Иван Иванов"></label>
+        <label>Телефон *<input type="tel" name="phone" required placeholder="+7 (___) ___-__-__"></label>
+        <label>E-mail<input type="email" name="email" placeholder="example@mail.ru"></label>
+        <label>Адрес доставки *<input type="text" name="address" required placeholder="Город, улица, дом, квартира"></label>
+        <label>Комментарий к заказу<textarea name="comment" rows="3" placeholder="Пожелания, время доставки..."></textarea></label>
+      </div>
+      <div class="checkout-total">
+        <div class="checkout-total__row"><span>Товары:</span><span id="checkoutItemsCount">0 шт</span></div>
+        <div class="checkout-total__row"><span>Доставка:</span><span id="checkoutDelivery">Бесплатно</span></div>
+        <div class="checkout-total__row checkout-total__row--final"><span>Итого к оплате:</span><span id="checkoutTotal">0 ₽</span></div>
+      </div>
+      <button type="submit" class="btn btn--primary btn--full btn--large">Подтвердить заказ</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===== ВХОД / РЕГИСТРАЦИЯ ===== -->
+<div class="modal" id="authModal" aria-hidden="true">
+  <div class="modal__window modal__window--auth">
+    <button class="modal__close" data-close aria-label="Закрыть">×</button>
+    <h2 id="authTitle">Вход в аккаунт</h2>
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login" type="button">Вход</button>
+      <button class="auth-tab" data-tab="register" type="button">Регистрация</button>
+    </div>
+    <form class="auth-form" id="loginForm">
+      <label>E-mail или телефон<input type="text" name="login" placeholder="example@mail.ru" required></label>
+      <label>Пароль<div class="password-wrap"><input type="password" name="password" placeholder="Введите пароль" required minlength="6"><button type="button" class="toggle-pass" aria-label="Показать пароль"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24s7-12 18-12 18 12 18 12-7 12-18 12S6 24 6 24z"/><circle cx="24" cy="24" r="5"/><line class="eye-slash" x1="10" y1="38" x2="38" y2="10"/></svg></button></div></label>
+      <label class="checkbox-row"><input type="checkbox" name="remember"><span>Запомнить меня</span></label>
+      <button type="submit" class="btn btn--primary btn--full">Войти</button>
+      <p class="auth-hint">Нет аккаунта? <a href="#" data-switch="register">Зарегистрироваться</a></p>
+    </form>
+    <form class="auth-form hidden" id="registerForm">
+      <label>Имя<input type="text" name="name" placeholder="Иван" required minlength="2"></label>
+      <label>E-mail<input type="email" name="email" placeholder="example@mail.ru" required></label>
+      <label>Телефон<input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></label>
+      <label>Пароль<div class="password-wrap"><input type="password" name="password" placeholder="Минимум 6 символов" required minlength="6"><button type="button" class="toggle-pass" aria-label="Показать пароль"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24s7-12 18-12 18 12 18 12-7 12-18 12S6 24 6 24z"/><circle cx="24" cy="24" r="5"/><line class="eye-slash" x1="10" y1="38" x2="38" y2="10"/></svg></button></div></label>
+      <label>Повторите пароль<div class="password-wrap"><input type="password" name="password2" placeholder="Повторите пароль" required minlength="6"><button type="button" class="toggle-pass" aria-label="Показать пароль"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24s7-12 18-12 18 12 18 12-7 12-18 12S6 24 6 24z"/><circle cx="24" cy="24" r="5"/><line class="eye-slash" x1="10" y1="38" x2="38" y2="10"/></svg></button></div></label>
+      <label class="checkbox-row"><input type="checkbox" name="agree" required><span>Согласен с <a href="policy.html" target="_blank" rel="noopener">политикой конфиденциальности</a></span></label>
+      <button type="submit" class="btn btn--primary btn--full">Зарегистрироваться</button>
+      <p class="auth-hint">Уже есть аккаунт? <a href="#" data-switch="login">Войти</a></p>
+    </form>
+    <div class="auth-message" id="authMessage"></div>
+  </div>
+</div>
+
+<!-- ===== РЕЗУЛЬТАТЫ ПОИСКА ===== -->
+<div class="modal" id="searchModal" aria-hidden="true">
+  <div class="modal__window modal__window--search">
+    <button class="modal__close" data-close aria-label="Закрыть">×</button>
+    <h2>Результаты поиска</h2>
+    <div class="search-query" id="searchQuery"></div>
+    <div class="products-grid" id="searchResults"></div>
+    <div class="search-empty" id="searchEmpty" style="display:none;">
+      <p><svg class="txt-icn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="21" cy="21" r="12"/><line x1="30" y1="30" x2="40" y2="40"/><line x1="16" y1="16" x2="26" y2="26"/><line x1="26" y1="16" x2="16" y2="26"/></svg> По вашему запросу ничего не найдено</p>
+      <p style="font-size:14px;color:var(--muted);margin-top:10px;">Попробуйте изменить запрос или посмотреть в каталоге</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== COOKIE ===== -->
+<div class="cookie-banner" id="cookieBanner">
+  <p><svg class="txt-icn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><circle cx="18" cy="18" r="1.5" fill="currentColor" stroke="none"/><circle cx="29" cy="16" r="1.5" fill="currentColor" stroke="none"/><circle cx="24" cy="26" r="1.5" fill="currentColor" stroke="none"/><circle cx="16" cy="29" r="1.5" fill="currentColor" stroke="none"/><circle cx="31" cy="29" r="1.5" fill="currentColor" stroke="none"/></svg> Мы используем cookies для работы сайта и улучшения сервиса. <a href="cookies-policy.html" target="_blank" rel="noopener">Подробнее о cookies</a></p>
+  <button class="btn btn--primary" id="acceptCookies">Принять</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>

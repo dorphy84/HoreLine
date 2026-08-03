@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — ХореЛайн</title>
+  <meta name="description" content="Контакты ХореЛайн: телефоны, e-mail, адрес в Санкт-Петербурге, форма обратной связи. Пн–Пт 9:00–19:00.">
+    <link rel="icon" type="image/png" href="img/favicon.png?v=2">
+  <link rel="apple-touch-icon" href="img/favicon.png?v=2">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== ШАПКА ===== -->
+<header class="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo" aria-label="ХореЛайн — на главную">
+      <img src="img/logo.png" alt="ХореЛайн" class="logo__img">
+    </a>
+
+    <nav class="nav">
+      <button class="nav__burger" id="burger" aria-label="Меню">☰</button>
+      <ul class="nav__list" id="navList">
+        <li><a href="index.html#catalog">Каталог</a></li>
+        <li><a href="index.html#bestsellers">Рекомендуем</a></li>
+        <li><a href="about.html">О компании</a></li>
+        <li><a href="contacts.html" class="active">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <form class="search" onsubmit="handleSearch(event)">
+        <input type="search" placeholder="Поиск товаров..." aria-label="Поиск" autocomplete="off">
+        <button type="submit" aria-label="Найти">
+          <img src="img/search.svg" alt="" class="search__icon">
+        </button>
+      </form>
+
+      <button class="cart-btn" id="cartBtn" aria-label="Корзина">
+        <img src="img/cart.svg" alt="" class="cart-btn__icon">
+        <span class="cart-btn__count" id="cartCount">0</span>
+      </button>
+
+      <button class="user-btn" id="userBtn" aria-label="Войти">
+        <span class="user-btn__icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="17" r="7"/><path d="M11 40 C11 31 17 27 24 27 C31 27 37 31 37 40"/></svg></span>
+        <span class="user-btn__text" id="userBtnText">Войти</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== ХЛЕБНЫЕ КРОШКИ ===== -->
+<div class="container" style="padding: 20px 0;">
+  <nav class="breadcrumbs">
+    <a href="index.html">Главная</a> → <span>Контакты</span>
+  </nav>
+</div>
+
+<!-- ===== КОНТАКТЫ ===== -->
+<section class="page">
+  <div class="container">
+    <h1>Контакты</h1>
+
+    <div class="contacts-grid">
+      <div class="contact-card">
+        <span class="contact-card__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M44 33.84v6a4 4 0 0 1-4.36 4 39.58 39.58 0 0 1-17.26-6.14 39 39 0 0 1-12-12 39.58 39.58 0 0 1-6.14-17.34A4 4 0 0 1 8.22 4h6a4 4 0 0 1 4 3.44 25.68 25.68 0 0 0 1.4 5.62 4 4 0 0 1-.9 4.22L16.18 19.82a32 32 0 0 0 12 12l2.54-2.54a4 4 0 0 1 4.22-.9 25.68 25.68 0 0 0 5.62 1.4A4 4 0 0 1 44 33.84z"/>
+          </svg>
+        </span>
+        <h3>Телефон</h3>
+        <p><a href="tel:+79313565759">+7 (931) 356-57-59</a></p>
+      </div>
+      <div class="contact-card">
+        <span class="contact-card__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4" y="8" width="40" height="32" rx="4"/>
+            <path d="M44 12 L24 26 L4 12"/>
+          </svg>
+        </span>
+        <h3>E-mail</h3>
+        <p><a href="mailto:hozochka-spb@yandex.ru">hozochka-spb@yandex.ru</a></p>
+      </div>
+      <div class="contact-card">
+        <span class="contact-card__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M24 6 C16 6 11 12 11 19 C11 28 24 42 24 42 C24 42 37 28 37 19 C37 12 32 6 24 6 Z"/>
+            <circle cx="24" cy="19" r="5"/>
+          </svg>
+        </span>
+        <h3>Адрес</h3>
+        <p>г. Санкт-Петербург</p>
+        <p>Доставка по городу и области</p>
+      </div>
+      <div class="contact-card">
+        <span class="contact-card__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="24" cy="24" r="15"/>
+            <path d="M24 15 V24 L30 28"/>
+          </svg>
+        </span>
+        <h3>Режим работы</h3>
+        <p>Пн–Пт: 9:00–19:00</p>
+        <p>Сб–Вс: выходной</p>
+      </div>
+    </div>
+
+    <!-- ===== ДОСТАВКА И ОПЛАТА + FAQ (вместо формы «Напишите нам») ===== -->
+    <div class="contacts-extra" style="margin-top: 30px;">
+
+      <h2 class="section__title" style="text-align:left; font-size: 24px; margin-bottom: 6px;">Доставка и оплата</h2>
+      <p style="color: var(--muted); margin: 0 0 18px;">Прозрачные условия без скрытых платежей.</p>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M24 6 C16 6 11 12 11 19 C11 28 24 42 24 42 C24 42 37 28 37 19 C37 12 32 6 24 6 Z"/>
+              <circle cx="24" cy="19" r="5"/>
+            </svg>
+          </div>
+          <h3>Зоны доставки</h3>
+          <p>Санкт‑Петербург и Ленинградская область.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="24" cy="24" r="15"/>
+              <path d="M24 15 V24 L30 28"/>
+            </svg>
+          </div>
+          <h3>Сроки</h3>
+          <p>Отгрузка со склада 1–2 рабочих дня после подтверждения заказа менеджером.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="10" y="20" width="28" height="18" rx="2"/>
+              <path d="M8 14 H40 V20 H8 Z"/>
+              <line x1="24" y1="14" x2="24" y2="38"/>
+              <path d="M24 14 C20 8 13 10 16 14 M24 14 C28 8 35 10 32 14"/>
+            </svg>
+          </div>
+          <h3>Бесплатно от 5000 ₽</h3>
+          <p>При сумме заказа от 5000 ₽ доставка по СПб — бесплатно. До 5000 ₽ — 1000 ₽.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="7" y="13" width="34" height="22" rx="3"/>
+              <line x1="7" y1="20" x2="41" y2="20"/>
+              <line x1="13" y1="29" x2="22" y2="29"/>
+            </svg>
+          </div>
+          <h3>Способы оплаты</h3>
+          <p>Безналичный расчет по счету</p>
+        </div>
+      </div>
+
+      <h2 class="section__title" style="text-align:left; font-size: 24px; margin: 34px 0 6px;">Частые вопросы</h2>
+      <p style="color: var(--muted); margin: 0 0 18px;">Не нашли ответ? Позвоните — подскажем за минуту.</p>
+
+      <div class="faq">
+        <details class="faq__item">
+          <summary>Какой минимальный заказ?</summary>
+          <p>Минимальной суммы нет — Но доставка бесплатна от 5000 ₽, поэтому выгоднее собрать заказ побольше.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Есть ли у вас экологичная и биоразлагаемая посуда?</summary>
+          <p>Да. В каталоге есть посуда из биоразлагаемых материалов — например, приборы «БИО КРАФТ»</p>
+        </details>
+        <details class="faq__item">
+          <summary>Можно ли оплатить при получении?</summary>
+          <p>Да, оплата — после получения и проверки заказа. Предоплата не требуется.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Что делать, если товар пришёл бракованный?</summary>
+          <p>Сообщите нам в течение 14 дней — заменим или вернём деньги без лишних вопросов. Контакты для связи — в блоках выше.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Есть ли самовывоз?</summary>
+          <p>Нет, самовывоза нет. Работаем только с доставкой: по Санкт‑Петербургу и Ленинградской области.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ФУТЕР ===== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <h4>Контакты</h4>
+      <p><a href="tel:+79313565759">+7 (931) 356-57-59</a></p>
+      <p><a href="mailto:hozochka-spb@yandex.ru">hozochka-spb@yandex.ru</a></p>
+    </div>
+    <div class="footer__col">
+      <h4>Информация</h4>
+      <ul>
+        <li><a href="about.html">О магазине</a></li>
+        <li><a href="contacts.html">Доставка и оплата</a></li>
+        <li><a href="about.html#returns">Условия возврата</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Документы</h4>
+      <ul>
+        <li><a href="policy.html" target="_blank" rel="noopener">Политика конфиденциальности</a></li>
+        <li><a href="cookies-policy.html" target="_blank" rel="noopener">Политика использования cookies</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Мы в сети</h4>
+      <p>г. Санкт-Петербург</p>
+      <p>Пн–Пт: 9:00–19:00</p>
+    </div>
+  </div>
+  <div class="footer__copy">© 2026 ХореЛайн. Все права защищены.</div>
+</footer>
+
+<!-- ===== КОРЗИНА ===== -->
+<div class="modal" id="cartModal" aria-hidden="true">
+  <div class="modal__window modal__window--cart">
+    <button class="modal__close" data-close aria-label="Закрыть">×</button>
+    <h2>Корзина</h2>
+    <div class="cart-list" id="cartList"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Итого: <strong id="cartTotal">0 ₽</strong></div>
+      <button class="btn btn--primary" id="checkoutBtn">Оформить заказ</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ОФОРМЛЕНИЕ ЗАКАЗА ===== -->
+<div class="modal" id="checkoutModal" aria-hidden="true">
+  <div class="modal__window modal__window--checkout">
+    <button class="modal__close" data-close aria-label="Закрыть">×</button>
+    <h2>Оформление заказа</h2>
+    <form id="checkoutForm" class="checkout-form">
+      <div class="checkout-section">
+        <h3><span class="acc-h-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="16" r="8"/><path d="M8 42c0-8.8 7.2-16 16-16s16 7.2 16 16"/></svg></span> Ваши данные</h3>
+        <label>Имя *<input type="text" name="name" required placeholder="Иван Иванов"></label>
+        <label>Телефон *<input type="tel" name="phone" required placeholder="+7 (___) ___-__-__"></label>
+        <label>E-mail<input type="email" name="email" placeholder="example@mail.ru"></label>
+        <label>Адрес доставки *<input type="text" name="address" required placeholder="Город, улица, дом, квартира"></label>
+        <label>Комментарий к заказу<textarea name="comment" rows="3" placeholder="Пожелания, время доставки..."></textarea></label>
+      </div>
+
+      <div class="checkout-total">
+        <div class="checkout-total__row"><span>Товары:</span><span id="checkoutItemsCount">0 шт</span></div>
+        <div class="checkout-total__row"><span>Доставка:</span><span id="checkoutDelivery">Бесплатно</span></div>
+        <div class="checkout-total__row checkout-total__row--final"><span>Итого к оплате:</span><span id="checkoutTotal">0 ₽</span></div>
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--full btn--large">Подтвердить заказ</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===== ПОЛИТИКА ===== -->
+<div class="modal" id="policyModal" aria-hidden="true">
+  <div class="modal__window">
+    <button class="modal__close" data-close aria-label="Закрыть">×</button>
+    <h2>Политика конфиденциальности</h2>
+    <div class="policy-text">
+      <p><strong>1. Общие положения.</strong> Настоящая Политика регулирует обработку персональных данных пользователей сайта «ХореЛайн».</p>
+      <p><strong>2. Какие данные мы собираем.</strong> При оформлении заказа мы можем запросить: имя, телефон, e-mail, адрес доставки.</p>
+      <p><strong>3. Цели обработки.</strong> Данные используются для исполнения договора, доставки заказа, связи с клиентом и улучшения сервиса.</p>
+      <p><strong>4. Хранение и защита.</strong> Мы принимаем организационные и технические меры для защиты ваших данных от несанкционированного доступа.</p>
+      <p><strong>5. Передача третьим лицам.</strong> Мы не передаём данные третьим лицам, кроме случаев, предусмотренных законодательством РФ, и партнёров-курьерских служб для доставки.</p>
+      <p><strong>6. Cookies.</strong> Сайт использует cookies для корректной работы корзины и аналитики. Продолжая пользоваться сайтом, вы соглашаетесь с их использованием.</p>
+      <p><strong>7. Права пользователя.</strong> Вы вправе в любой момент отозвать согласие на обработку данных, направив письмо на <a href="mailto:hozochka-spb@yandex.ru">hozochka-spb@yandex.ru</a>.</p>
+      <p><em>Дата последнего обновления: 21 июля 2026 г.</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== COOKIE ===== -->
+<div class="cookie-banner" id="cookieBanner">
+  <p><svg class="txt-icn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><circle cx="18" cy="18" r="1.5" fill="currentColor" stroke="none"/><circle cx="29" cy="16" r="1.5" fill="currentColor" stroke="none"/><circle cx="24" cy="26" r="1.5" fill="currentColor" stroke="none"/><circle cx="16" cy="29" r="1.5" fill="currentColor" stroke="none"/><circle cx="31" cy="29" r="1.5" fill="currentColor" stroke="none"/></svg> Мы используем cookies для работы сайта и улучшения сервиса. <a href="cookies-policy.html" target="_blank" rel="noopener">Подробнее о cookies</a></p>
+  <button class="btn btn--primary" id="acceptCookies">Принять</button>
+</div>
+
+<!-- ===== ВХОД / РЕГИСТРАЦИЯ ===== -->
+<div class="modal" id="authModal" aria-hidden="true">
+  <div class="modal__window modal__window--auth">
+    <button class="modal__close" data-close aria-label="Закрыть">×</button>
+    <h2 id="authTitle">Вход в аккаунт</h2>
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login" type="button">Вход</button>
+      <button class="auth-tab" data-tab="register" type="button">Регистрация</button>
+    </div>
+    <form class="auth-form" id="loginForm">
+      <label>E-mail или телефон<input type="text" name="login" placeholder="example@mail.ru" required></label>
+      <label>Пароль<div class="password-wrap"><input type="password" name="password" placeholder="Введите пароль" required minlength="6"><button type="button" class="toggle-pass" aria-label="Показать пароль"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24s7-12 18-12 18 12 18 12-7 12-18 12S6 24 6 24z"/><circle cx="24" cy="24" r="5"/><line class="eye-slash" x1="10" y1="38" x2="38" y2="10"/></svg></button></div></label>
+      <label class="checkbox-row"><input type="checkbox" name="remember"><span>Запомнить меня</span></label>
+      <button type="submit" class="btn btn--primary btn--full">Войти</button>
+      <p class="auth-hint">Нет аккаунта? <a href="#" data-switch="register">Зарегистрироваться</a></p>
+    </form>
+    <form class="auth-form hidden" id="registerForm">
+      <label>Имя<input type="text" name="name" placeholder="Иван" required minlength="2"></label>
+      <label>E-mail<input type="email" name="email" placeholder="example@mail.ru" required></label>
+      <label>Телефон<input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required></label>
+      <label>Пароль<div class="password-wrap"><input type="password" name="password" placeholder="Минимум 6 символов" required minlength="6"><button type="button" class="toggle-pass" aria-label="Показать пароль"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24s7-12 18-12 18 12 18 12-7 12-18 12S6 24 6 24z"/><circle cx="24" cy="24" r="5"/><line class="eye-slash" x1="10" y1="38" x2="38" y2="10"/></svg></button></div></label>
+      <label>Повторите пароль<div class="password-wrap"><input type="password" name="password2" placeholder="Повторите пароль" required minlength="6"><button type="button" class="toggle-pass" aria-label="Показать пароль"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24s7-12 18-12 18 12 18 12-7 12-18 12S6 24 6 24z"/><circle cx="24" cy="24" r="5"/><line class="eye-slash" x1="10" y1="38" x2="38" y2="10"/></svg></button></div></label>
+      <label class="checkbox-row"><input type="checkbox" name="agree" required><span>Согласен с <a href="policy.html" target="_blank" rel="noopener">политикой конфиденциальности</a></span></label>
+      <button type="submit" class="btn btn--primary btn--full">Зарегистрироваться</button>
+      <p class="auth-hint">Уже есть аккаунт? <a href="#" data-switch="login">Войти</a></p>
+    </form>
+    <div class="auth-message" id="authMessage"></div>
+  </div>
+</div>
+
+<!-- ===== РЕЗУЛЬТАТЫ ПОИСКА ===== -->
+<div class="modal" id="searchModal" aria-hidden="true">
+  <div class="modal__window modal__window--search">
+    <button class="modal__close" data-close aria-label="Закрыть">×</button>
+    <h2>Результаты поиска</h2>
+    <div class="search-query" id="searchQuery"></div>
+    <div class="products-grid" id="searchResults"></div>
+    <div class="search-empty" id="searchEmpty" style="display:none;">
+      <p><svg class="txt-icn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="21" cy="21" r="12"/><line x1="30" y1="30" x2="40" y2="40"/><line x1="16" y1="16" x2="26" y2="26"/><line x1="26" y1="16" x2="16" y2="26"/></svg> По вашему запросу ничего не найдено</p>
+      <p style="font-size:14px;color:var(--muted);margin-top:10px;">Попробуйте изменить запрос или посмотреть в каталоге</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
